@@ -1,0 +1,25 @@
+---
+# Installs latest of esential packages. 
+- name: install dnf packages.
+  hosts:
+    - localhost
+  
+  tasks:
+    dnf: {{ item }}
+    state: latest
+  
+  with_items:
+    - jq
+    - tmux
+    - ack
+    - task_warrior
+    - npm
+    - nerdfornts
+    - powerline
+    - powerline-fonts
+    - pip 
+    - python 
+    - zsh
+    - zsh-lovers
+    - zsh-syntax-highlighting
+

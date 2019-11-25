@@ -33,4 +33,10 @@
       - zsh-lovers
       - zsh-syntax-highlighting
 # Calling roles to do subsequent task. 
-#
+
+ - name: Calling the roles.
+   roles:
+     role: 
+      - zsh_config
+      - vim_config
+

@@ -1,2 +1,17 @@
 ---
-# tasks file for zsh_config
+
+# Prerequisites packages should be installed.
+- apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - git
+    - zsh
+  become: true
+# Download the ohmyzsh installer and execute it.
+- get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: "{{ role_path }}/files/install.sh"
+- command:
+    cmd: sh  "{{ role_path }}/files/install.sh"

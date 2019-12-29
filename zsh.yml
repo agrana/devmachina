@@ -1,6 +1,7 @@
 ---
 - hosts:
   - localhost
+  gather_facts: false
   roles:
     - role:
         zsh_config

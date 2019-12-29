@@ -1,5 +1,4 @@
 ---
-
 # Prerequisites packages should be installed.
 - apt:
     name: "{{ item }}"
@@ -11,7 +10,32 @@
   become: true
 # Download the ohmyzsh installer and execute it.
 - get_url:
-    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    url: "https://raw.githubusercontent.com\
+         /ohmyzsh/ohmyzsh/master/tools/install.sh"
     dest: "{{ role_path }}/files/install.sh"
 - command:
     cmd: sh  "{{ role_path }}/files/install.sh"
+  args:
+    creates: "/home/{{ ansible_user }}/.oh-my-zsh"
+# Sets zsh shell for ansible user.
+# usermod should work here to. 
+- shell: chsh -s $(which zsh) "{{ ansible_user }}"
+  become: true
+- apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - powerline
+    - fonts-powerline
+    - zsh-theme-powerlevel9k
+    - zsh-syntax-highlighting
+  become: true
+- lineinfile:
+    path: "/home/{{ ansible_user }}/.zshrc"
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
+    - source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Remember to change your terminal settings to use  powerline fonts in order to see
+# power line symbols correctly. 

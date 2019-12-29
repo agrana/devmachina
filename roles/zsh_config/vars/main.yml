@@ -1,2 +1,16 @@
 ---
 # vars file for zsh_config
+ohmyzsh_deps:
+  - git
+  - zsh
+  - curl
+zsh_customs:
+  packages:
+    - powerline
+    - fonts-powerline
+    - zsh-theme-powerlevel9k
+    - zsh-syntax-highlighting
+    # TODO: add the progress indications.
+  enable_lines:
+    - source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
+    - source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,4 +1,6 @@
 # Create key and authorize it.
+# The connection could be changed in ansible to use local and avoid this.
+# This works with the default ansible config.
 KEYPRESENT=$(stat ~/.ssh/id_rsa)
 if [ -z $KEYPRESENT ]; then
    ssh-keygen -b 4096 &&\

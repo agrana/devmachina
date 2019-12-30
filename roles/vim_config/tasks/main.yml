@@ -1,2 +1,14 @@
 ---
 # tasks file for vim_config
+# install prerequisite packages.
+- apt:
+    name: neovim
+    state: present
+  become: true
+- get_url: 
+    url: https://spacevim.org/install.sh
+    dest: "{{ role_path }}/files/install.sh"
+- command:
+    cmd: "sh {{ role_path }}/files/install.sh"
+  args:
+    creates: "home/{{ ansible_user }}/.SpaceVim"

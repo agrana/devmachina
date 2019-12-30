@@ -50,7 +50,7 @@ mccabe==0.6.1
 msgpack==0.5.6
 neovim==0.2.0
 netaddr==0.7.19
-paramiko==2.0.0
+paramiko==2.0.9
 parso==0.1.1
 pathlib2==2.3.5
 pbr==5.4.3

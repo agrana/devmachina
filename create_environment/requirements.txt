@@ -20,7 +20,7 @@ configparser==4.0.2
 cookiecutter==1.6.0
 cryptography==2.3
 dateparser==0.7.2
-Django==1.11.10
+Django==1.11.23
 docker==4.1.0
 docutils==0.15.2
 enum34==1.1.6

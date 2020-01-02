@@ -5,6 +5,8 @@
     name: neovim
     state: present
   become: true
+
+# Installing SpaceVim 
 - get_url: 
     url: https://spacevim.org/install.sh
     dest: "{{ role_path }}/files/install.sh"
@@ -12,3 +14,9 @@
     cmd: "sh {{ role_path }}/files/install.sh"
   args:
     creates: "home/{{ ansible_user }}/.SpaceVim"
+ Setting vim as editor. 
+- lineinfile:
+    path: $HOME/.bashrc
+    state: present
+    line: export EDITOR=$(which vim)
+

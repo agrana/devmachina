@@ -1,0 +1,55 @@
+---
+# Prerequisites packages should be installed.
+- apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    "{{ ohmyzsh_deps }}"
+  become: true
+
+# Download the ohmyzsh installer and execute it.
+- get_url:
+    url: "https://raw.githubusercontent.com\
+         /ohmyzsh/ohmyzsh/master/tools/install.sh"
+    dest: "{{ role_path }}/files/install.sh"
+- command:
+    cmd: sh  "{{ role_path }}/files/install.sh"
+  args:
+    creates: "/home/{{ ansible_user }}/.oh-my-zsh"
+
+# Set zsh shell for ansible user.
+- user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/zsh
+  become: true
+- shell: chsh -s $(which zsh) "{{ ansible_user }}"
+  become: true
+
+# Zsh config file. 
+- template:
+    src: templates/zshrc.j2
+    dest: /home/{{ ansible_user }}/.zshrc
+    backup: true
+
+# Custom zsh installs.
+- apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    "{{ zsh_customs.packages }}"
+  become: true
+- lineinfile:
+    path: "/home/{{ ansible_user }}/.zshrc"
+    state: present
+    line: "{{ item }}"
+  with_items:
+    "{{ zsh_customs.enable_lines }}"
+# Change your terminal settings to use a powerline font to see
+# power line symbols correctly.
+
+# Starting zsh in bashrc. 
+- lineinfile:
+    path: "/home/{{ ansible_user }}/.bashrc"
+    state: present
+    line: $(which zsh)
+    # TODO conditional to execute this task only in c9

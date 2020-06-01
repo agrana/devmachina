@@ -4,7 +4,11 @@ import os
 # Any clients created from this session will use credentials
 # from the [dev] section of ~/.aws/credentials.
 # print(session)
-client = boto3.client('cloud9', region_name='us-east-1', aws_access_key_id=os.environ['ACCESS_KEY'], aws_secret_access_key=os.environ['SECRET_KEY'])
+
+client = boto3.client('cloud9', region_name='us-east-1',
+                       aws_access_key_id=os.environ['ACCESS_KEY'], 
+                      aws_secret_access_key=os.environ['SECRET_KEY']
+                      )
 
 response = client.create_environment_ec2(
         name='devMachina',

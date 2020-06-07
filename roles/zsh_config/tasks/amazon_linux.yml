@@ -1,6 +1,6 @@
 ---
 # Prerequisites packages should be installed.
-- apt:
+- yum:
     name: "{{ item }}"
     state: present
   with_items:
@@ -32,7 +32,7 @@
     backup: true
 
 # Custom zsh installs.
-- apt:
+- yum:
     name: "{{ item }}"
     state: present
   with_items:

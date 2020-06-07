@@ -1,10 +1,11 @@
 ---
 # tasks file for vim_config
 # install prerequisite packages.
-- apt:
-    name: neovim
-    state: present
-  become: true
+
+#- apt:
+#    name: neovim
+#    state: present
+#  become: true
 
 # Installing SpaceVim 
 - get_url: 
@@ -13,10 +14,16 @@
 - command:
     cmd: "sh {{ role_path }}/files/install.sh"
   args:
-    creates: "home/{{ ansible_user }}/.SpaceVim"
- Setting vim as editor. 
+    creates: "/home/{{ ansible_user }}/.SpaceVim"
+# Setting vim as editor. 
 - lineinfile:
     path: $HOME/.bashrc
     state: present
     line: export EDITOR=$(which vim)
-
+- command:
+    cmd: "screen -d -m vim"
+  register: screen_out
+  args:
+    creates: "/home/{{ ansible_user }}/.cache/vimfiles/repos/"
+- debug:
+    msg: "{{ screen_out }}"

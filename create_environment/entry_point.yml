@@ -1,0 +1,34 @@
+---
+# Installs latest of esential packages. 
+- name: yum install packages.
+
+  hosts:
+    - localhost
+  
+  tasks:
+  - name: install the needeed packages. 
+    become: true
+    yum: 
+      name: "{{ vars.packages }}"
+      state: latest
+    vars:
+      packages:
+        - jq
+        - tmux
+        - ack
+        # - task_warrior
+        - npm
+        #- nerdfornts
+        #- powerline
+        #- powerline-fonts
+        - zsh
+        #- zsh-lovers
+        #- zsh-syntax-highlighting
+# Calling roles to do subsequent tasks. 
+
+# - name: Calling the roles.
+#   roles:
+#     role: 
+      #- zsh_config
+      #- vim_config
+

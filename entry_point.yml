@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  # gather_facts: false
+  roles:
+    - role: yum_packages
+      vars:
+        packages:
+          - zsh
+          - jq
+          - ack
+          - npm
+          - zsh
+          # - neovim
+    - role: vim_config
+      vars: 
+        ansible_user: 'ec2-user'
+    - role: zsh_config

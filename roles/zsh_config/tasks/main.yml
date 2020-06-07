@@ -1,8 +1,7 @@
-- name: "shut down CentOS 6 and Debian 7 systems"
-  include_playbook: amazon_linux.yml
-    when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6") or
-          (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "7")
-- name: "shut down CentOS 6 and Debian 7 systems"
-  include_playbook: ubuntu.yml
-    when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6") or
-          (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "7")
+- name: "Amazon Linux"
+  include_tasks: amazon_linux.yml
+  when: ansible_facts['distribution'] == 'Amazon'
+
+- name: "Configure zsh in ubuntu boxes"
+  include_tasks: ubuntu.yml
+  when: ansible_facts['distribution'] == "Ubuntu"

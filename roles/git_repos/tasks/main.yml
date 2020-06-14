@@ -1,0 +1,5 @@
+
+- git:
+    repo: "{{ item.value.repo }}"
+    dest: "{{ item.value.folder }}"
+  with_dict: "{{ repos }}"

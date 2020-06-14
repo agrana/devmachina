@@ -1,0 +1,8 @@
+packages:
+  - zsh
+  - jq
+  - ack
+  - npm
+  - zsh
+  - git
+  - curl

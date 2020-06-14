@@ -1,6 +1,0 @@
----
-- hosts: localhost
-  tasks:
-  - debug: 
-       msg: "{{ ansible_facts['distribution'] }}"
-

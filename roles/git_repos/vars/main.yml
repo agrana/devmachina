@@ -1,0 +1,13 @@
+repos:
+  intrepid_ansible:
+    repo: https://github.com/agrana/intrepid-ansible.git
+    folder: ~/environment/intrepid-ansilbe
+  vacoompy:
+    repo: https://github.com/agrana/vacoompy.git
+    folder: ~/environment/vacoompy
+  pregenio:
+    repo: https://github.com/agrana/pregenio.git
+    folder: ~/environment/pregenio
+  zsh_syntax_hl:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    folder: ~/.oh-my-zsh/plugins/zsh-syntax-highlighting

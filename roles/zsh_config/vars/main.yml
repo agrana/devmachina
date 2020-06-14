@@ -12,5 +12,4 @@ zsh_customs:
     #- zsh-syntax-highlighting
     # TODO: add the progress indications.
   enable_lines:
-    - source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
-    - source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    - source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh

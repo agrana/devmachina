@@ -2,16 +2,9 @@
 - hosts: localhost
   # gather_facts: false
   roles:
-    - role: yum_packages
-      vars:
-        packages:
-          - zsh
-          - jq
-          - ack
-          - npm
-          - zsh
-          # - neovim
+    - role: dep_packages
     - role: vim_config
-      vars: 
+      vars:
         ansible_user: 'ec2-user'
     - role: zsh_config
+    - role: git_repos

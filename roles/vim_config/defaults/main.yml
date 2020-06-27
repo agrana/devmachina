@@ -1,2 +1,3 @@
 ---
 # defaults file for vim_config
+color_scheme: "molokai"

@@ -1,11 +1,5 @@
 ---
 # Prerequisites packages should be installed.
-#- yum:
-#    name: "{{ item }}"
-#    state: present
-#  with_items:
-#    "{{ ohmyzsh_deps }}"
-#  become: true
 
 # Download the ohmyzsh installer and execute it.
 - get_url:
@@ -32,12 +26,6 @@
     backup: true
 
 # Custom zsh installs.
-#- yum:
-#    name: "{{ item }}"
-#    state: present
-#  with_items:
-#    "{{ zsh_customs.packages }}"
-#  become: true
 - lineinfile:
     path: "/home/{{ ansible_user }}/.zshrc"
     state: present
@@ -46,10 +34,8 @@
     "{{ zsh_customs.enable_lines }}"
 # Change your terminal settings to use a powerline font to see
 # power line symbols correctly.
-
 # Starting zsh in bashrc.
 - lineinfile:
     path: "/home/{{ ansible_user }}/.bashrc"
     state: present
     line: $(which zsh)
-    # TODO conditional to execute this task only in c9

@@ -25,5 +25,8 @@
   register: screen_out
   args:
     creates: "/home/{{ ansible_user }}/.cache/vimfiles/repos/"
+- template:
+    src: init.toml.j2
+    dest: "/home/{{ ansible_user }}/.SpaceVim.d/init.toml"
 - debug:
     msg: "{{ screen_out }}"

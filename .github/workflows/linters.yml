@@ -23,4 +23,4 @@ jobs:
           architecture: x64
           token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
       - name: run script 
-        run: ${{ GITHUB_WORKSPACE }}/scripts/build.py
+        run: ./scripts/build.py

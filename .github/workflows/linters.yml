@@ -13,7 +13,8 @@ jobs:
         with:
           yamllint_file_or_dir: 'roles'
           yamllint_strict: false
-          yamllint_comment: true
+          yamllint_comment: false
+          yamllint_config_filepath: './.yamllint'
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
       - name: Setup Python

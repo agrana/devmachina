@@ -1,0 +1,6 @@
+line-length: disable
+comments: disable
+new-line-at-end-of-file: disable 
+trailing-spaces: disable
+truthy:
+  level: warning

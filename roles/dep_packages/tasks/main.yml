@@ -1,15 +1,7 @@
 ---
-# Installs latest of esential packages. 
 - name: install the needeed packages. 
   become: true
   yum: 
     name: "{{ vars.packages }}"
     state: latest
-#  vars:
-#    packages:
-#      - jq
-#      - tmux
-#      - ack
-#      - npm
-#      - zsh
 

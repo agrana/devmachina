@@ -1,3 +1,4 @@
+---
 repos:
   intrepid_ansible:
     repo: https://github.com/agrana/intrepid-ansible.git

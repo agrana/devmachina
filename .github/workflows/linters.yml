@@ -17,14 +17,4 @@ jobs:
           yamllint_config_filepath: './.yamllint'
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.6.10
-          architecture: x64
-          token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-      - name: run build
-        run: python ./build.py
-        env: 
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }} 
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  

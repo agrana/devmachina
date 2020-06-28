@@ -25,4 +25,6 @@ jobs:
           token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
       - name: run build
         run: python ./build.py
-        env: ${{ secrets.ACCESS_KEY }} ${{ secrets.SECRET_KEY }}
+        env: 
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }} 
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}

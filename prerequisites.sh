@@ -11,5 +11,6 @@ ANSIBLE=$(which ansible-playbook)
 if [ -z $ANSIBLE ]; then
 	sudo apt-get install ansible
 fi
+mkdir -p ~/environment
 cd ~/environment && git clone https://github.com/agrana/devmachina.git
 

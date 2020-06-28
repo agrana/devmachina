@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CD
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -25,5 +25,14 @@ jobs:
     # Runs a single command using the runners shell
     - name: Check prereguisites.
       run: ./prerequisites.sh
-
-    
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+          python-version: 3.6.10
+          architecture: x64
+          token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+    - name: run build
+      run: python ./build.py
+      env: 
+        ACCESS_KEY: ${{ secrets.ACCESS_KEY }} 
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}

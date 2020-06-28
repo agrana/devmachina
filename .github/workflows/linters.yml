@@ -23,5 +23,5 @@ jobs:
           python-version: 3.6.10
           architecture: x64
           token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
-      - name: run script 
-        run: ./build.py
+      - name: run build
+        run: python ./build.py

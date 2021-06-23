@@ -1,10 +1,14 @@
 ---
 - hosts: localhost
-  # gather_facts: false
+
   roles:
+
     - role: dep_packages
+
     - role: vim_config
       vars:
         ansible_user: 'ec2-user'
+
     - role: zsh_config
+
     - role: git_repos

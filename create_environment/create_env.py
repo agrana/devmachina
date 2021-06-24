@@ -24,7 +24,7 @@ response = client.create_environment_ec2(
         clientRequestToken=str(env_id)[:7],
         instanceType='t3.micro',
         automaticStopTimeMinutes=20,
-        ownerArn= os.environ('OWNER_ARN')
+        ownerArn= os.environ['OWNER_ARN']
         )
 
 print(response)

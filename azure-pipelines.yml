@@ -21,6 +21,7 @@ jobs:
       pip install -r $(Build.SourcesDirectory)/create_environment/requirements.txt
     displayName: Install requirements
   - task: PythonScript@0
+    enabled: false
     inputs:
       scriptSource: 'filePath'
       scriptPath: '$(Build.SourcesDirectory)/create_environment/create_env.py'

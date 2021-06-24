@@ -9,8 +9,8 @@ trigger:
 pool: Default
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: cat /etc/debian_version; env
+  displayName: Get hostname and env vars.
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.

@@ -6,7 +6,8 @@
 trigger:
 - main
 
-pool: Default
+pool:
+  vmImage: ubuntu-latest
 
 steps:
 - script: cat /etc/debian_version; env

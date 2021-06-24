@@ -19,7 +19,7 @@ steps:
     architecture: 'x64'
 
 - script: |
-    pip install $(Build.SourcesDirectory)/create_environment/requirements.txt
+    pip install -r $(Build.SourcesDirectory)/create_environment/requirements.txt
   displayName: 'Install requirements'
 
 

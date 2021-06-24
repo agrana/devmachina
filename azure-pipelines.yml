@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -10,16 +5,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: cat /etc/debian_version; env
-  displayName: Get hostname and env vars.
+
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.9'
+    versionSpec: 3.9
     addToPath: true
-    architecture: 'x64'
+    architecture: x64
 
 - script: |
+    cat /etc/debian_version
     pip install -r $(Build.SourcesDirectory)/create_environment/requirements.txt
-  displayName: 'Install requirements'
+  displayName: Install requirements
 
 
